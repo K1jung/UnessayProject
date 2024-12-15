@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intersections of Faith</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/1736/PNG/512/4043258-boy-indian-kid-native_113281.png">
+    <style>
+        :root {
+            --earth-brown: #5D4037;
+            --sand-beige: #D7CCC8;
+            --moss-green: #6D4C41;
+            --bark-gray: #3E2723;
+            --parchment: #EFEBE9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--parchment);
+            color: var(--bark-gray);
+            line-height: 1.6;
+        }
+
+        .parallax-container {
+            perspective: 1px;
+            height: 1000;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: translateZ(-1px) scale(2);
+            background-image: linear-gradient(to bottom, rgba(215, 204, 200, 0.8), rgba(109, 76, 65, 0.3)), 
+                              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D7CCC8"><path d="M0 0 L50 50 L0 100 Z M50 0 L100 50 L50 100 Z"/></g></svg>');
+            background-repeat: repeat;
+            z-index: -1;
+        }
+
+        .content {
+            position: relative;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            background-color: rgba(109, 76, 65, 0.1);
+        }
+
+        .timeline {
+            display: flex;
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        .timeline-line {
+            position: absolute;
+            width: 4px;
+            height: 100%;
+            background-color: var(--earth-brown);
+            left: 50px;
+            top: 0;
+        }
+
+        .timeline-events {
+            width: 100%;
+            position: relative;
+        }
+
+        .event {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+
+        .event.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .event-marker {
+            width: 20px;
+            height: 20px;
+            background-color: var(--earth-brown);
+            border-radius: 50%;
+            position: absolute;
+            left: 42px;
+            top: 0;
+        }
+
+        .event-content {
+            margin-left: 100px;
+            background-color: rgba(215, 204, 200, 0.7);
+            padding: 1rem;
+            border-left: 4px solid var(--moss-green);
+        }
+
+        .event-image {
+            max-width: 250px;
+            margin-right: 10px;
+            margin-top: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .works-cited {
+            background-color: rgba(109, 76, 65, 0.1);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .event-content {
+                margin-left: 50px;
+            }
+            .timeline-line {
+                left: 20px;
+            }
+            .event-marker {
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="parallax-container">
+        <div class="parallax-bg"></div>
+        <div class="content">
+            <div class="header">
+                <h1>Intersections of Faith</h1>
+                <p>Exploring the Complex Interactions Between Native American Spirituality and Missionary Efforts During the Colonial Period</p>
+                <br>
+                <p>By Kanoa Jung</p>
+            </div>
+
+
+            <div class="timeline">
+                <div class="timeline-events" id="timeline-events"></div>
+            </div>
+
+            <div class="works-cited">
+                <h2>Works Cited</h2>
+                <ul>
+                    <li>Crouch, Cody. “John Eliot: Translating the Bible for the Native Americans | Cody Crouch.” YouTube, Cody Crouch on TBN, www.youtube.com/embed/YQz0JH5CZ4U?si=HsoBgkoQxMEJAvS9. Accessed 12 Dec. 2024.</li>
+                    <li>DeRose, Jason. “Churches Confess and Repent for Sins against Native and Indigenous People.” NPR, NPR, 6 Oct. 2023, www.npr.org/2023/10/06/1203760200/churches-confess-and-repent-for-sins-against-native-and-indigenous-people.</li>
+                    <li>“First Encounters: Native Americans and Christians.” Site Search, pluralism.org/first-encounters-native-americans-and-christians. Accessed 12 Dec. 2024.</li>
+                    <li>John, Elliot. “Mamusse Wunneetupanatamwe Up-Biblum God Naneeswe Nukkone Testament Kah Wonk Wusku Testament.” Internet Archive: Digital Library of Free & Borrowable Texts, Movies, Music & Wayback Machine, archive.org/. Accessed 12 Dec. 2024.</li>
+                    <li>“King Philip’s War.” Encyclopædia Britannica, Encyclopædia Britannica, inc., 15 Nov. 2024, www.britannica.com/event/King-Philips-War.</li>
+                    <li>“Missionary Work of the Women’s National Indian Association and Letters of Missionaries.” The Library of Congress, www.loc.gov/item/77376329/. Accessed 12 Dec. 2024.</li>
+                    <li>“Nanabush & Creation.” YouTube, Wabano Centre, www.youtube.com/embed/p0QInPzOpCc?si=HQ3n5O1lSR_UR9Vx. Accessed 12 Dec. 2024.</li>
+                    <li>“Native American Myths: Stories from the Spirit World.” SOCIALSTUDIESHELP.COM, 24 May 2024, socialstudieshelp.com/native-american-myths-stories-from-the-spirit-world/.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const events = [
+            {
+                title: "Indigenous Spirituality Pre-colonization",
+                type: "Background",
+                description: "Native peoples inhabited the Americas for thousands of years before settlers arrived, cultivating the land and fostering deeply rooted religious and spiritual traditions that connected them to their environment and communities. Their beliefs were often passed down orally, creating a rich tapestry of stories and teachings that evolved over generations. This oral tradition lent Indigenous spiritual practices remarkable flexibility, allowing beliefs to adapt to new contexts, challenges, and periods of change. It also fostered a profound diversity within Indigenous worldviews, where different groups could interpret and celebrate shared phenomena—such as creation itself—through unique and varied narratives. This dynamic approach to spirituality contrasted greatly with the beliefs of Western colonists, who brought with them the more rigid and universal teachings of Christianity.",
+                image: "https://socialstudieshelp.com/wp-content/uploads/2024/05/Native-American-Myths-Stories-from-the-Spirit-World.webp",
+                link: "https://socialstudieshelp.com/wp-content/uploads/2024/05/Native-American-Myths-Stories-from-the-Spirit-World.webp"
+            },
+            {
+                title: "The Nanabush Creation Story",
+                videoLink: "https://www.youtube.com/embed/p0QInPzOpCc?si=HQ3n5O1lSR_UR9Vx"
+            },
+            {
+                title: "The Advent of Christianity in the Americas",
+                type: "Introduction",
+                description: "When Christianity spread through Native American communities, it did more than just replace traditional beliefs—it collided with them in ways that led to unexpected and intriguing intersections of faith. European colonists viewed the natives as agnostic and primitive, dismissing their deeply held spiritual traditions and the rich cultural practices that had developed over thousands of years in harmony with the land. To the colonists, the arrival of Christianity in the Americas was seen as a necessity to \"save\" the souls of the Indigenous peoples. However, while the colonists' goal was to convert the natives to Christianity, the result was more complex. Rather than fully abandoning their traditional beliefs, Native communities found ways to incorporate aspects of Christianity into their spiritual lives, creating a hybrid faith. They adapted to colonial life in ways that suited their needs, utilizing infrastructure such as churches and roads for their own gatherings and community purposes—much to the frustration of some colonists, who had hoped for complete assimilation. This blending of traditions reveals the resilience of Native cultures, as they not only preserved their spiritual practices but also navigated the imposition of foreign beliefs on their own terms.",
+                image: "https://photos.smugmug.com/Encounter/Historical-Perspectives/First-Encounters-Native-Americans-and-Christians/i-P2X8qh9/0/KcStNfmqzxhM6DCVn7RpgSrsf83mqq7LfkvH4qmbr/L/9028893158_655787c5e6_o-L.jpg",
+                link: "https://pluralism.org/first-encounters-native-americans-and-christians"
+            },
+            {
+                title: "The Eliot Indian Bible",
+                type: "Primary Source",
+                description: "The Eliot Indian Bible is a translation of the Christian Bible into the Wampanoag language, prepared by John Eliot in collaboration with the Algonquian indigenous people of Massachusetts in 1661. This is an important source when looking at the integration of Christianity and Native beliefs because it shows an approach to missionary work that is less invasive and oppressive, allowing Indigenous people to interpret and apply the teachings of the Bible to their own religious practices. This text is also very important because it is the first case of the Christian Bible being translated into a Native American language, indicating that Native culture and language had already influenced missionary practices enough for a translated bible to be produced. The co-author of the translation, John Eliot, decided to learn the language during his missionary work as an adult to better understand and communicate with the Massachusetts Indigenous people, which he achieved through the exchange of religious beliefs rather than forcible conversion.",
+                image: "https://upload.wikimedia.org/wikipedia/commons/6/66/Houghton_AC6_E%E2%84%93452_663m_-_John_Eliot%2C_1663%2C_title.jpg",
+                link: "https://archive.org/details/mamussewunneetup02elio/page/n21/mode/2upS"
+            },
+            {
+                title: "A Video History of John Eliot's Missionary Work",
+                videoLink: "https://www.youtube.com/embed/YQz0JH5CZ4U?si=HsoBgkoQxMEJAvS9"
+            },
+            {
+                title: "Conflicts of Religion",
+                type: "Transition",
+                description: "Though John Eliot was a pacifist towards the Natives and believed their culture should be respected, he still aimed to convert them to Christianity and impose Western influence on their lives. This was a common goal of missionaries in the Americas, but many of them went about it through more oppressive means. Though they believed that their intent was good, these missionary efforts were often demeaning and built upon a foundation of superiority that treated the Native people as lesser beings or even animals. These practices faced significant resistance from Native groups and even contributed to violence between the Natives and Colonists such as the infamous King Philip’s War, which ultimately led to an even larger push to indoctrinate the Indigenous population.",
+                image: "https://www.historynet.com/wp-content/uploads/image/2015/MH/JAN/Philip.jpg",
+                link: "https://www.britannica.com/event/King-Philips-War"
+            },
+            {
+                title: "Women's National Indian Association",
+                type: "Primary Source",
+                description: "An example of a good-willed but misguided missionary group is the Women's National Indian Association, which was a female religious group founded in the 1870s that aimed to convert indigenous people to Western lifestyles without encroaching on their lands and rights. This group contributed to the development of infrastructure, such as churches and community buildings, in settlements bordering native land, encouraging natives to attend classes and church services. To their dismay, the Natives opted to utilize their services, such as sharing clothing and food, without converting, a result that they had not anticipated. The group strongly believed that Native life was uncivil and that their “help” would be accepted graciously, but their beliefs of superiority inhibited them from understanding and connecting with Native people.",
+                image: "https://tile.loc.gov/image-services/iiif/public:gdcmassbookdig:missionaryworkof00nati:missionaryworkof00nati_0005/full/pct:25.0/0/default.jpg",
+                link: "https://www.loc.gov/item/77376329/"
+            },
+            {
+                quote: "\"She has had the advantages of civilization, but cannot yet be induced to quit her Indian life.\"",
+                author: "- National Indian Association. Missionary Committee.",
+                description: "This quote, from the Report of the Missionary Committee of the Women's National Indian Association, refers to a Nebraskan Native woman who was given a quilt to acknowledge her continued attendance to sewing classes hosted by the organization. The teacher is disappointed that, despite their attempts to “civilize” her, she still follows her husband’s native traditions and teaches her daughter native beliefs. This is an example of how many natives integrated themselves into colonial society but did not allow their identity and ideologies to be trampled upon."
+            },
+            {
+                quote: "\"I think three times I have gone at the hour on Sunday and found the children out playing... and they did not intend on having a Sunday School.\"",
+                author: "- National Indian Association. Missionary Committee.",
+                description: "This is another quote that demonstrates how Native people used the infrastructure brought by colonists, such as buildings meant for Sunday School services, in a way that was not originally intended by the missionaries, such as a place to meet and play with other Native children away from their parents. The speaker recounts that this is not an isolated incident and the children do not attempt to participate in the designated activities until explicitly told to do so."
+            },
+            {
+                title: "The Aftermath of Colonization",
+                type: "Conclusion",
+                description: "The interaction between Native American beliefs and Christianity highlights the adaptability and resilience of Indigenous cultures in the face of colonial pressures. Native communities did not simply adopt Christianity wholesale; instead, they integrated aspects of it into their existing traditions, creating unique hybrid belief systems. The translation of the Bible into Wampanoag exemplifies this blending, as it allowed Indigenous interpretations to influence Christian teachings. Missionary efforts, often aimed at full assimilation, frequently clashed with Native practices, revealing the persistence of Indigenous worldviews. These intersections demonstrate how Native groups navigated colonization by reshaping imposed systems to align with their own cultural frameworks. Even going forward into modern times, Native American beliefs have held on and been passed down and will continue to evolve as the landscape of the United States, the same land that their ancestors cultivated for generations, changes.",
+                image: "https://media.npr.org/assets/img/2023/10/04/vatican-doctrine-of-discovery-c82242c6b06e92125fdeeed6fc694f5658ee101e.jpg",
+                link: "https://www.npr.org/2023/10/06/1203760200/churches-confess-and-repent-for-sins-against-native-and-indigenous-people"
+            },
+        ];
+
+        const timelineEvents = document.getElementById('timeline-events');
+
+        events.forEach((event, index) => {
+            const eventElement = document.createElement('div');
+            eventElement.classList.add('event');
+            if (event.videoLink) {
+                eventElement.innerHTML = `
+                <div class="event-content">
+                    <h3>${event.title}</h3>
+                    <iframe width="1000" height="500" src="${event.videoLink}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                `;
+                timelineEvents.appendChild(eventElement);
+            }
+            else {
+                if (event.quote) {
+                    eventElement.innerHTML = `
+                    <div class="event-content">
+                        <h2>${event.quote}</h2>
+                        <h3>${event.author}</h3>
+                        <p><br>${event.description}</p>
+                    </div>
+                    `;
+                    timelineEvents.appendChild(eventElement)
+                }
+                else {
+                    eventElement.innerHTML = `
+                    <div class="event-content">
+                        <h3>${event.title}</h3>
+                        <h4>${event.type}</h4>
+                        <table cellspacing="10">
+                            <tr>
+                                <td>
+                                    ${event.link ? `<a href="${event.link}"><img src="${event.image}" alt="${event.title}" class="event-image"></a>` : `<img src="${event.image}" alt="${event.title}" class="event-image">`}
+                                </td>
+                                <td>
+                                    <p>${event.description}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                `;
+                timelineEvents.appendChild(eventElement);
+                }
+            }
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+                if (!entry.isIntersecting) {
+                    entry.target.classList.remove('visible')
+                }
+            });
+        }, { threshold: 0.8 });
+
+        document.querySelectorAll('.event').forEach(event => {
+            observer.observe(event);
+        });
+    </script>
+</body>
+</html>
